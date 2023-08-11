@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asset/style/style.css">
+    <link rel="stylesheet" href="./asset/icon/themify-icons-font/themify-icons/themify-icons.css">
+    <title>Play Music</title>
+</head>
+
+<body>
+    <div class="container-app">
+        <video autoplay muted loop id="my-video" src="./asset/img/my-background.mp4"></video>
+        <div class="play-card ">
+            <div class="card-header">
+                <h3 class="title-header">Now Playing:</h3>
+                <h1 class="name-music">id 072019</h1>
+            </div>
+            <img class="img-card" src="" alt="">
+            <div class="control-button">
+                <div class="btn-control" href="">
+                    <i class="ti-reload btn"></i>
+                </div>
+                <div href="" class="btn-control">
+                    <i class="ti-control-skip-backward btn btn-back"></i>
+                </div>
+                <div href="" class="btn-control border-play-pause">
+                    <i class="ti-control-play btn btn-play"></i>
+                    <i class="ti-control-pause btn btn-pause"></i>
+                </div>
+                <div href="" class="btn-control">
+                    <i class="ti-control-skip-forward btn btn-next"></i>
+                </div>
+                <div href="" class="btn-control">
+                    <i class="ti-control-shuffle btn"></i>
+                </div>
+            </div>
+        </div>
+        <div class="container-playlist">
+            <div class="header-card-playlist">
+                <h1 class="title-playlist">Danh sách bài hát</h1>
+            </div>
+            <div class="card-playlist">
+                <div class="song" data-index="0">
+                    <div class="playlist__img-song">
+                        <img class="img-song-item" src="./asset/img/OIF.jpg" alt="">
+                    </div>
+                    <div class="info-song">
+                        <span class="name-song">id 072019</span>
+                        <span class="singer-song">3107 ft 267</span>
+                    </div>
+                    <div class="time-music">5:02</div>
+                </div>
+                <div class="song" data-index="1">
+                    <div class="playlist__img-song">
+                        <img class="img-song-item" src="./asset/img/img-mck.jpg" alt="">
+                    </div>
+                    <div class="info-song">
+                        <span class="name-song">Anh đã ổn hơn</span>
+                        <span class="singer-song">RPT MCK</span>
+                    </div>
+                    <div class="time-music">3:14</div>
+                </div>
+                <div class="song " data-index="2">
+                    <div class="playlist__img-song">
+                        <img class="img-song-item" src="./asset/img/taivisao-mck.jpg" alt="">
+                    </div>
+                    <div class="info-song">
+                        <span class="name-song">Tại vì sao?</span>
+                        <span class="singer-song">RPT MCk</span>
+                    </div>
+                    <div class="time-music">3:52</div>
+
+                </div>
+                <div class="song" data-index="3">
+                    <div class="playlist__img-song">
+                        <img class="img-song-item" src="./asset/img/weanbabye.jpg" alt="">
+                    </div>
+                    <div class="info-song">
+                        <span class="name-song">Babye</span>
+                        <span class="singer-song">WEAN</span>
+                    </div>
+                    <div class="time-music">3:33</div>
+                </div>
+                <div class="song" data-index="4">
+                    <div class="playlist__img-song">
+                        <img class="img-song-item" src="./asset/img/motnguoiviem.jpg" alt="">
+                    </div>
+                    <div class="info-song">
+                        <span class="name-song">Một người vì em</span>
+                        <span class="singer-song">WEAN</span>
+                    </div>
+                    <div class="time-music">3:32</div>
+                </div>
+                <div class="song" data-index="5">
+                    <div class="playlist__img-song">
+                        <img class="img-song-item" src="./asset/img/anhdaonhonthenhieu.jpg" alt="">
+                    </div>
+                    <div class="info-song">
+                        <span class="name-song">Anh đã lớn hơn thế nhiều</span>
+                        <span class="singer-song">Dick ft michelle Ngn</span>
+                    </div>
+                    <div class="time-music">5:02</div>
+                </div>
+            </div>
+        </div>
+        <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+        <audio id="audio" src=""></audio>
+    </div>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        const playBtn = $('.btn-play')
+        const pauseBtn = $('.btn-pause')
+        const player = $('.play-card ')
+        const progress = $('.progress')
+        const cd = $('.img-card')
+        const next = $('.btn-next')
+        const back = $('.btn-back')
+        // đặt biến app chứa playlist songs
+        const app = {
+            currentIndex: 0,
+            songs: [
+                {
+                    name: 'id 072019',
+                    singer: '3107 ft 267',
+                    path: './asset/music/song1.mp3',
+                    img: 'asset/img/OIF.jpg',
+                    time: '5:02'
+                },
+                {
+                    name: 'Anh đã ổn hơn',
+                    singer: 'RPT MCK',
+                    path: './asset/music/song2.mp3',
+                    img: './asset/img/img-mck.jpg',
+                    time: '3:14'
+                },
+                {
+                    name: 'Babye',
+                    singer: 'WEAN',
+                    path: './asset/music/song4.mp3',
+                    img: './asset/img/weanbabye.jpg',
+                    time: '3:33'
+                },
+                {
+                    name: 'Một người vì em',
+                    singer: 'WEAN',
+                    path: './asset/music/song5.mp3',
+                    img: './asset/img/motnguoiviem.jpg',
+                    time: '3:32'
+                },
+                {
+                    name: 'Anh đã lớn hơn thế nhiều',
+                    singer: 'Dick ft michelle Ngn',
+                    path: './asset/music/song6.mp3',
+                    img: './asset/img/anhdaonhonthenhieu.jpg',
+                    time: '5:02'
+                },
+                {
+                    name: 'Không thể say',
+                    singer: 'Hieuthuhai',
+                    path: './asset/music/song7.mp3',
+                    img: './asset/img/khong-the-say-hieuthuhai-kewtiie-1100112.jpg',
+                    time: '5:02'
+                },
+                {
+                    name: 'lavie',
+                    singer: 'WEAN',
+                    path: './asset/music/song8.mp3',
+                    img: './asset/img/lavie.jpg',
+                    time: '3:54'
+                },
+            ],
+            render: function () {
+                const htmls = this.songs.map(song => {
+                    return `
+                        <div class="song" data-index="${song.index}">
+                            <div class="playlist__img-song">
+                                <img class="img-song-item" src="${song.img}" alt="">
+                            </div>
+                        <div class="info-song">
+                            <span class="name-song">${song.name}</span>
+                            <span class="singer-song">${song.singer}</span>
+                        </div>
+                        <div class="time-music">
+                            ${song.time}
+                        </div>
+                        </div>
+                        `
+
+                })
+                $('.card-playlist').innerHTML = htmls.join('')
+            },
+            handleEvent: function () {
+                //xử lí cd rotate
+                const rotateCd = cd.animate([
+                    { transform: 'rotate(360deg)' }
+                ], {
+                    duration: 10000,
+                    iterations: Infinity
+                })
+                rotateCd.pause()
+                // xử lí khi lick play
+                playBtn.onclick = function () {
+                    audio.play()
+                    player.classList.add("playing")
+
+                }
+                // xử lí khi lick pause
+                pauseBtn.onclick = function () {
+                    audio.pause()
+                    player.classList.remove("playing")
+
+                }
+                // khi song được play
+                audio.onplay = function () {
+                    rotateCd.play()
+                }
+                // khi song được pause
+                audio.onpause = function () {
+                    rotateCd.pause()
+                }
+                //khi next song
+                next.onclick = function () {
+                    app.nextSong()
+                    audio.play()
+                }
+                //khi back song
+                back.onclick = function () {
+                    app.backSong()
+                    audio.play()
+                }
+                // khi tiến độ bài hát thay đổi
+                audio.ontimeupdate = function () {
+                    if (audio.duration) {
+                        const progressPersen = Math.floor(audio.currentTime / audio.duration * 100);
+                        progress.value = progressPersen;
+
+
+                    }
+
+                }
+                //xử lí khi tua song
+                progress.onchange = function (e) {
+                    const seekTime = audio.duration / 100 * e.target.value;
+                    audio.currentTime = seekTime;
+                }
+
+            },
+            defineProperties: function () {
+                Object.defineProperty(this, 'currentSong', {
+                    get: function () {
+                        return this.songs[ this.currentIndex ]
+                    }
+                })
+            },
+            loadCurrentSong: function () {
+                const heading = $('.card-header .name-music')
+                const thumb = $('.img-card')
+                const audio = $('#audio')
+                heading.textContent = this.currentSong.name
+                thumb.style.backgroundImage = `url('${this.currentSong.img}')`
+                audio.src = this.currentSong.path
+                console.log(heading, thumb, audio)
+            },
+            nextSong: function () {
+                this.currentIndex++;
+                if (this.currentIndex >= this.songs.length) {
+                    this.currentIndex = 0
+                }
+                this.loadCurrentSong()
+            },
+            backSong: function () {
+                this.currentIndex--;
+                if (this.currentIndex < 0) {
+                    this.currentIndex = this.songs.length
+                }
+                this.loadCurrentSong()
+            },
+            start: function () {
+                this.defineProperties()
+                this.handleEvent()
+                this.loadCurrentSong()
+                this.render()
+            }
+        }
+        app.start();
+    </script>
+</body>
+
+</html>

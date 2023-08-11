@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-app {
+    width: 100%;
+    display: flex;
+}
+
+#my-video {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.card-header .title-header,
+.name-music {
+    color: #ff6600;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.title-header {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.play-card {
+    position: sticky;
+    margin-top: 20px;
+    width: 40%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.img-card {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    margin: 40px auto;
+    object-fit: cover;
+    background-position: center;
+}
+
+.control-button {
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+}
+
+.btn-control {
+    margin: 0 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.play-card .btn-pause {
+    display: none;
+}
+
+.playing .btn-pause {
+    display: block;
+}
+
+.playing .btn-play {
+    display: none;
+}
+
+.btn {
+    font-size: 30px;
+    color: white;
+}
+
+
+.border-play-pause {
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #ff6600;
+    color: #ff6600;
+}
+
+.container-playlist {
+    width: 50%;
+    position: absolute;
+    right: 7%;
+    margin-top: 20px;
+}
+
+.card-playlist {
+
+    width: 100%;
+    background-color: transparent;
+}
+
+.header-card-playlist {
+    display: flex;
+    justify-content: center;
+}
+
+.title-playlist {
+    font-weight: 400;
+    font-size: 30px;
+    color: white;
+    position: absolute;
+}
+
+.header-card-playlist {
+    margin-bottom: 30px;
+}
+
+.song {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.song:hover .img-song-item,
+.song:hover .name-song,
+.song:hover .singer-song,
+.song:hover .time-music {
+    transform: rotate(360deg);
+    color: white;
+}
+
+.song:hover {
+    background-color: #ff6600;
+    border-radius: 10px;
+}
+
+.img-song-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px 0 10px;
+    object-fit: cover;
+    transition: transform 10s ease-out;
+}
+
+.info-song {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+
+.name-song {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #ff6600;
+}
+
+.singer-song {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff6600;
+}
+
+.time-music {
+    margin-left: auto;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #ff6600;
+}
+
+#progress {
+    position: absolute;
+    top: 55%;
+    left: 10%;
+    min-width: 20%;
+    overflow: hidden;
+    -webkit-appearance: none;
+    border-radius: 10px;
+}
