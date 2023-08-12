@@ -19,7 +19,10 @@
 
 
 
-.card-header .title-header,
+.card-header .title-header {
+    color: #ffff;
+}
+
 .name-music {
     color: #ff6600;
 }
@@ -84,6 +87,14 @@
     color: white;
 }
 
+.repeat {
+    color: #ff6600;
+}
+
+.btn-control .active {
+    color: #ff6600;
+}
+
 
 .border-play-pause {
     padding: 8px;
@@ -143,6 +154,21 @@
     border-radius: 10px;
 }
 
+.song:active {
+    opacity: 0.8;
+}
+
+.song.active {
+    background-color: #cccc;
+    border-radius: 10px;
+}
+
+.song.active .name-song,
+.song.active .singer-song,
+.song.active .time-music {
+    color: #ffff;
+}
+
 .img-song-item {
     width: 50px;
     height: 50px;
@@ -163,20 +189,20 @@
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 4px;
-    color: #ff6600;
+    color: #cccc;
 }
 
 .singer-song {
     font-size: 18px;
     font-weight: 600;
-    color: #ff6600;
+    color: #cccc;
 }
 
 .time-music {
     margin-left: auto;
     margin-right: 10px;
     font-size: 18px;
-    color: #ff6600;
+    color: #ccc;
 }
 
 #progress {
